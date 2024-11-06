@@ -6,15 +6,15 @@ const pusher = new Pusher({
   key: process.env.NEXT_PUBLIC_PUSHER_APP_KEY as string,
   secret: process.env.NEXT_PUBLIC_PUSHER_SECRET as string,
   cluster: process.env.NEXT_PUBLIC_PUSHER_CLUSTER as string,
-  useTLS: true,
-  host: "https://copyfier.netlify.app",
+  useTLS: false,
+  // host: "https://copyfier.netlify.app",
 });
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     const { message, channelName } = req.body;
     // Trigger an event on the specified channel
-    pusher.trigger("channelName", "my-event", {
+    pusher.trigger(channelName, "my-event", {
       message,
     });
 
