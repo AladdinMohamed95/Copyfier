@@ -7,6 +7,7 @@ const pusher = new Pusher({
   secret: process.env.NEXT_PUBLIC_PUSHER_SECRET as string,
   cluster: process.env.NEXT_PUBLIC_PUSHER_CLUSTER as string,
   useTLS: true,
+  host: "https://copyfier.netlify.app",
 });
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
