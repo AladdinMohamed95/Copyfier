@@ -13,7 +13,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     const { message, channelName } = req.body;
     // Trigger an event on the specified channel
-    pusher.trigger("alaa", "my-event", {
+    pusher.trigger(channelName, "my-event", {
       message,
     });
 
